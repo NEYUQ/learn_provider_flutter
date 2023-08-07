@@ -74,7 +74,9 @@ class ObjectProvider extends ChangeNotifier {
     id = const Uuid().v4();
     super.notifyListeners();
   }
-
+  ///
+  /// Start streams.
+  ///
   void start() {
     _cheapObjectStreamSubs =
         Stream.periodic(const Duration(seconds: 1)).listen((_) {
@@ -88,7 +90,9 @@ class ObjectProvider extends ChangeNotifier {
       notifyListeners();
     });
   }
-
+  ///
+  /// Stop streams.
+  ///
   void stop() {
     _cheapObjectStreamSubs.cancel();
     _expensiveStreamSubs.cancel();
